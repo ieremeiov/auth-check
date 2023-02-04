@@ -21,15 +21,13 @@ public class ApiExceptionHandler {
 
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler(InvalidTokenException.class)
-    public ResponseEntity<String> handleInvalidToken(
-            InvalidTokenException ex) {
+    public ResponseEntity<String> handleInvalidToken() {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid Token");
     }
 
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler(InvalidCredentialsException.class)
-    public ResponseEntity<String> handleInvalidCredentials(
-            InvalidCredentialsException ex) {
+    public ResponseEntity<String> handleInvalidCredentials() {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid Credentials");
     }
 

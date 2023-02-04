@@ -12,7 +12,7 @@
 ### Run Docker Compose
 
 - run command:
-    - docker-compose up
+    - docker compose up
 
 ### Example Postman Collection
 

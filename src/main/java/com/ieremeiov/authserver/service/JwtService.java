@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.ieremeiov.authserver.exceptions.InvalidTokenException;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +31,7 @@ public class JwtService {
                     .build()
                     .verify(token)
                     .getSubject();
-        } catch (SignatureVerificationException | JWTDecodeException ex) {
+        } catch (SignatureVerificationException | JWTDecodeException | TokenExpiredException ex) {
             throw new InvalidTokenException();
         }
     }
