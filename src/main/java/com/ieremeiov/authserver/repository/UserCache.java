@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
 @Component
-public class UserTokenDao {
+public class UserCache {
 
     private final Map<String, User> userByEmail = new ConcurrentHashMap<>();
 

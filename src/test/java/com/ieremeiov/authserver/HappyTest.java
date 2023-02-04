@@ -2,6 +2,7 @@ package com.ieremeiov.authserver;
 
 import com.ieremeiov.authserver.model.AuthenticatedUser;
 import com.ieremeiov.authserver.model.AuthorizedUser;
+import com.ieremeiov.authserver.repository.UserCache;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,11 +23,28 @@ public class HappyTest {
     @Autowired
     private WebTestClient webTestClient;
 
+    @Autowired
+    private UserCache userCache;
+
     @Test
     void testRegistrationFlow() {
         registerUser();
+
+        //TODO Awaitility / mockito Answer + countdownlatch
+        waitForUserView();
+
         String jwtToken = loginAndGetToken();
         checkAuth(jwtToken);
+    }
+
+    private void waitForUserView() {
+        while (!userCache.contains(TEST_USER)) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

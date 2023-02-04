@@ -1,8 +1,9 @@
 package com.ieremeiov.authserver.service;
 
+import com.ieremeiov.authserver.messaging.UserRegistrationProducer;
 import com.ieremeiov.authserver.model.UserRegistration;
 import com.ieremeiov.authserver.repository.User;
-import com.ieremeiov.authserver.repository.UserTokenDao;
+import com.ieremeiov.authserver.repository.UserCache;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,19 +16,23 @@ import java.util.Optional;
 @Service
 public class RegistrationService {
 
-    private final UserTokenDao repo;
+    private final UserCache userCache;
+    private final UserRegistrationProducer userRegistrationProducer;
+
     private final PasswordEncoder encoder;
 
     public boolean userExists(String username) {
-        return repo.contains(username);
+        return userCache.contains(username);
     }
 
     public void register(UserRegistration registration) {
-        repo.createOrUpdate(toNewUser(registration));
+        User newUser = toNewUser(registration);
+//        repo.createOrUpdate(newUser);
+        userRegistrationProducer.sendUserRegistration(newUser);
     }
 
     public Optional<User> findByEmail(String email) {
-        return repo.findByEmail(email);
+        return userCache.findByEmail(email);
     }
 
     private User toNewUser(UserRegistration reg) {
