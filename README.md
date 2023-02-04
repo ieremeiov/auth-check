@@ -3,7 +3,9 @@
 - make sure you navigate to project root path
 - make sure JAVA_HOME points to java version 17
 - run command:
-    - mvn spring-boot:build-image
+  - mvn spring-boot:build-image
+- or you can use maven wrapper instead:
+  - mvnw spring-boot:build-image
 - image 'authcheck:latest' will be generated
 - image name is configured in 'spring-boot-maven-plugin' as 'authcheck'
 
