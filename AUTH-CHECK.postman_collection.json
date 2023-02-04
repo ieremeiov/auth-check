@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "33cbe744-1160-4044-a0e6-c2af3f3b60c5",
+		"name": "AUTH-CHECK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "REGISTER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"qwqwqw\",\r\n    \"password\": \"qwqwqw\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"qwqwqw\",\r\n    \"password\": \"qwqwqw\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/userlogin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"userlogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CHECK AUTH",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/checkAuth?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJxd3F3cXciLCJleHAiOjE2NzU1Mjc0MjN9.Ud86AwV0XdfOqtntYjFQJFPCuVkEBCpwNW0YNwxr8ptbsTBQeQ2dgjvoMfkoNc-CXRuHYZiIepvdYGDHTbaY0w",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"checkAuth"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJxd3F3cXciLCJleHAiOjE2NzU1Mjc0MjN9.Ud86AwV0XdfOqtntYjFQJFPCuVkEBCpwNW0YNwxr8ptbsTBQeQ2dgjvoMfkoNc-CXRuHYZiIepvdYGDHTbaY0w"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

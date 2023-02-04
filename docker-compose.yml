@@ -1,0 +1,13 @@
+version: '2'
+services:
+  auch-check:
+    container_name: auth-check
+    image: authcheck:latest
+    ports:
+      - 80:8080
+    networks:
+      - auth-network
+
+networks:
+  auth-network:
+    driver: bridge

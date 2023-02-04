@@ -1,0 +1,15 @@
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\repository\User.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\model\AuthorizedUser.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\security\PassEncoderConfig.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\service\JwtService.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\model\UserLogin.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\repository\UserTokenDao.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\controller\AuthenticationCheckController.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\exceptions\InvalidTokenException.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\model\UserRegistration.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\controller\LoginController.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\controller\RegistrationController.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\AuthCheckApplication.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\model\AuthenticatedUser.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\exceptions\InvalidCredentialsException.java
+C:\Workspaces\_COREMAKER\auth_new\src\main\java\com\ieremeiov\authserver\service\RegistrationService.java
