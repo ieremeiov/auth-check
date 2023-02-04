@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ieremeiov.authserver.HappyTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.113 s - in com.ieremeiov.authserver.HappyTest
