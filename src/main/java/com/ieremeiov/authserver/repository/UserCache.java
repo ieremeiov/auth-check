@@ -27,9 +27,9 @@ public class UserCache {
         userByEmail.put(newUser.getEmail(), newUser);
     }
 
-    public boolean contains(String username) {
-        log.info("Checking if username {} exists", username);
-        return userByEmail.containsKey(username);
+    public boolean contains(String email) {
+        log.info("Checking if email {} exists", email);
+        return userByEmail.containsKey(email);
     }
 
 }

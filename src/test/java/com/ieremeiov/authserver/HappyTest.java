@@ -3,6 +3,7 @@ package com.ieremeiov.authserver;
 import com.ieremeiov.authserver.model.AuthenticatedUser;
 import com.ieremeiov.authserver.model.AuthorizedUser;
 import com.ieremeiov.authserver.repository.UserCache;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,6 +15,7 @@ import reactor.test.StepVerifier;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+@Slf4j
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class HappyTest {
 
@@ -40,9 +42,9 @@ public class HappyTest {
     private void waitForUserView() {
         while (!userCache.contains(TEST_USER)) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.info("waitForUserView() interrupted");
             }
         }
     }

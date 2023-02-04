@@ -24,10 +24,13 @@ public class ReadViewUpdater {
     private final RegistrationService registrations;
     private ScheduledExecutorService scheduler;
 
+    private static final int INITIAL_DELAY_SECONDS = 1;
+    private static final int DELAY_SECONDS = 1;
+
     @PostConstruct
     private void scheduleUpdater() {
         scheduler = Executors.newSingleThreadScheduledExecutor();
-        scheduler.scheduleWithFixedDelay(this::updateReadView, 11, 2, TimeUnit.SECONDS);
+        scheduler.scheduleWithFixedDelay(this::updateReadView, INITIAL_DELAY_SECONDS, DELAY_SECONDS, TimeUnit.SECONDS);
 //        while (shouldUpdateReadView) {
 //        updateReadView();
 //        }

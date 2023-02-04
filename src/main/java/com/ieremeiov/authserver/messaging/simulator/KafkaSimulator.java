@@ -1,11 +1,13 @@
 package com.ieremeiov.authserver.messaging.simulator;
 
 import com.ieremeiov.authserver.repository.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
+@Slf4j
 @Component
 public class KafkaSimulator {
 
@@ -15,7 +17,7 @@ public class KafkaSimulator {
         try {
             topic.put(user);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.info("Put() interrupted");
         }
     }
 
@@ -23,7 +25,7 @@ public class KafkaSimulator {
         try {
             return topic.take();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.info("Take() interrupted");
             return null;
         }
     }
