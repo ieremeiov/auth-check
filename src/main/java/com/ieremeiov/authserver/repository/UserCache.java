@@ -15,15 +15,15 @@ public class UserCache {
     private final Map<String, User> userByEmail = new ConcurrentHashMap<>();
 
     public Optional<User> findByEmail(String email) {
-        log.info("Retrieving {} from database", email);
+        log.info("Retrieving {} from cache", email);
 
         return userByEmail.containsKey(email) ?
                 Optional.of(userByEmail.get(email)) :
                 Optional.empty();
     }
 
-    public void createOrUpdate(User newUser) {
-        log.info("Create or Update user: {}", newUser);
+    public void put(User newUser) {
+        log.info("Create : {}", newUser);
         userByEmail.put(newUser.getEmail(), newUser);
     }
 

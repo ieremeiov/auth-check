@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RegistrationController {
 
-    private final RegistrationService service;
+    private final RegistrationService registrations;
 
     @PostMapping("/register")
     private ResponseEntity<String> registerUser(@RequestBody @Valid UserRegistration registration) {
 
-        if (service.userExists(registration.getEmail())) {
-            return ResponseEntity.badRequest().body("Username already taken");
+        if (registrations.emailAvailable(registration.getEmail())) {
+            registrations.begin(registration);
+            log.info("Registration successful for user {}", registration.getEmail());
+            return ResponseEntity.ok("You have been registered successfully");
+        } else {
+            return ResponseEntity.badRequest().body("Email unavailable");
         }
-
-        service.register(registration);
-        log.info("Registration successful for user {}", registration.getEmail());
-        return ResponseEntity.ok("You have been registered successfully");
     }
 
 }
