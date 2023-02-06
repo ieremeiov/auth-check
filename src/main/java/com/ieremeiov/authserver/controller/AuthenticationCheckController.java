@@ -26,7 +26,7 @@ public class AuthenticationCheckController {
 
         String verifiedEmail = jwt.verify(token);
 
-        User user = registrations.findByEmail(verifiedEmail)
+        User user = registrations.isRegistered(verifiedEmail)
                 .orElseThrow(InvalidTokenException::new);
 
         return ResponseEntity.ok(new AuthorizedUser(user.getEmail()));

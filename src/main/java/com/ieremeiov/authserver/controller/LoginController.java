@@ -32,7 +32,7 @@ public class LoginController {
     }
 
     private void validateCredentials(UserLogin loginRequest) {
-        registrations.findByEmail(loginRequest.getEmail())
+        registrations.isRegistered(loginRequest.getEmail())
                 .filter(user -> encoder.matches(loginRequest.getPassword(), user.getHashedPassword()))
                 .orElseThrow(InvalidCredentialsException::new);
     }

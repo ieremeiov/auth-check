@@ -44,7 +44,7 @@ public class RegistrationService {
         log.info("Pending registrations: {}", pendingRegistrations.size());
     }
 
-    public Optional<User> findByEmail(String email) {
+    public Optional<User> isRegistered(String email) {
         return userCache.findByEmail(email);
     }
 
